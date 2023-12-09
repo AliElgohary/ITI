@@ -1,0 +1,17 @@
+CSS background-position
+https://www.w3schools.com/cssref/pr_background-position.asp
+
+CSS background-attachment
+https://www.w3schools.com/cssref/pr_background-attachment.asp
+
+
+----------------------
+Full width background image:
+https://css-tricks.com/perfect-full-page-background-image/
+
+Parallax Scrolling
+https://www.w3schools.com/howto/howto_css_parallax.asp
+
+background scolling:
+https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_parallax
+

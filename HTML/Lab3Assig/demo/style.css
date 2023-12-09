@@ -1,0 +1,327 @@
+h1 {
+    color: brown;
+}
+
+.cRed {
+    color: red;
+}
+
+.bg {
+    background-color: aqua;
+}
+
+.first {
+    color: blue;
+}
+
+.second {
+    color: green
+}
+
+#bg-color {
+    background-color: bisque;
+}
+
+
+/* div span {
+    color: red;
+} */
+
+
+/* div>span {
+    color: red;
+}
+
+div+p {
+    color: blue;
+}
+
+div~p {
+    color: brown;
+} */
+
+
+/* 
+font family
+
+
+sani saif 
+saif
+web safe font
+
+*/
+
+p {
+    /* font-family: 'Vina Sans', sans-serif; */
+    font-size: 20px;
+    font-weight: 800;
+    /* font-style: italic; */
+}
+
+h1 {
+    text-align: center;
+    /* text-align: right; */
+    /* text-transform: uppercase; */
+    /* text-decoration: underline; */
+    /* text-decoration: line-through; */
+    /* text-decoration: overline; */
+}
+
+div {
+    /* border-top-color: brown;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-bottom-color: brown;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: brown;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-right-color: brown;
+    border-right-style: solid;
+    border-right-width: 1px; */
+    /* short hand */
+    /* border: 1px solid red; */
+    width: 25%;
+    height: 50px;
+    /* margin padding */
+    /* margin-top: 50px; */
+    /* margin: 50px; */
+    /* padding-top: 20px;
+    padding-left: 20px; */
+    /* padding: 50px;
+    /* background imag */
+    /* background-image: url('1.jpg'), url('2.jpg');
+    background-repeat: no-repeat, repeat;
+    background-position: center, left; */
+    /* background-repeat: no-repeat;
+    background-position: center; */
+    /* background-size: 100px; */
+    /* background-size: cover; */
+    /* background-size: contain; */
+    /* position */
+    /* position: absolute; */
+    /* bottom: 20px; */
+    /* top: 20px;
+    right: 50px; */
+    position: fixed;
+    top: 0;
+}
+
+
+/* .parent {
+    background-color: antiquewhite;
+    width: 25%;
+    height: 200px;
+    position: relative;
+} */
+
+
+/* .child {
+    background-color: red;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+} */
+
+.one,
+.two,
+.three,
+.four {
+    /* display: inline-block; */
+    /* display: none; */
+    background-color: red;
+    width: 25%;
+    height: 100px;
+    /* float: left; */
+}
+
+.one {
+    /* float: left; */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 1;
+    /* opacit:0-1 */
+    opacity: 0;
+}
+
+.two {
+    /* float: right; */
+    background-color: blue;
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    z-index: 99999999;
+}
+
+.three {
+    background-color: rgb(0, 255, 183);
+    position: absolute;
+    top: 70px;
+    left: 70px;
+}
+
+.four {
+    background-color: rgb(255, 0, 166);
+}
+
+.clear {
+    clear: both;
+}
+
+.overflow {
+    height: 80px;
+    background-color: aqua;
+    /* overflow: hidden; */
+    /* overflow: visible; */
+    /* overflow: scroll; */
+    overflow: auto;
+}
+
+
+/* 
+pseudo class=
+*/
+
+a:link {
+    color: red;
+}
+
+a:visited {
+    color: aquamarine;
+}
+
+a:active {
+    color: green;
+}
+
+a:hover {
+    color: blueviolet;
+}
+
+
+/* p:first-child {
+    color: green;
+} */
+
+p:last-child {
+    color: blue;
+}
+
+p:nth-child(2) {
+    color: red;
+}
+
+
+/* p {
+    width: 100px;
+    height: 20px;
+} */
+
+
+/* p:empty {
+    background-color: brown;
+} */
+
+
+/* pseudo element
+p::after
+*/
+
+p::after {
+    content: "read more";
+    color: brown;
+}
+
+p::before {
+    content: "read this";
+    color: aquamarine;
+}
+
+.pseudoElement {
+    background-color: transparent;
+    width: 25%;
+    height: 100px;
+    border: 2px solid red;
+}
+
+.pseudoElement::after {
+    content: "";
+    width: 50px;
+    height: 5px;
+    background-color: white;
+    position: absolute;
+    top: 98px;
+    left: 20px;
+}
+
+.pseudoElement::before {
+    content: "";
+    width: 3px;
+    height: 50px;
+    background-color: black;
+    position: absolute;
+    top: 83px;
+    left: 50px;
+    z-index: 1;
+}
+
+
+/* p::first-line {
+    color: red;
+}
+
+p::first-letter {
+    color: blue;
+} */
+
+
+/* p::selection {
+    color: red;
+    background-color: aquamarine;
+    font-size: 50px;
+} */
+
+
+/* 
+specification
+
+id [class,pseudo class,attrbute] [element,pseudo element]
+
+inline style=1000
+important 10000
+ul li #a .c a:hover
+1 2 3=123
+ul li #a  a:hover
+1 1 3=113
+ul li   a:hover
+0 1 3=13
+*/
+
+
+/* 
+1 0 0=100
+ */
+
+#specification {
+    color: blue !important;
+}
+
+
+/* 0 1 0=10 */
+
+.sp {
+    color: green;
+}
+
+
+/* 
+0 0 1=1
+*/
+
+p {
+    color: red;
+}

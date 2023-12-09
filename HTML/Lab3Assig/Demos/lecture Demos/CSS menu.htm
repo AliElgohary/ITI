@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			#menu,.items{width:70px; height:30px}
+			#menu
+			{
+				border: 2px red solid;
+				background-color: gray;
+				display: block;
+			}
+
+			#menu:hover
+			{background-color: blue }
+
+			#menu:hover .items
+			{
+				/*display:block;*/
+				visibility: visible;
+				background-color: gray;
+			}
+
+			#menu .items:hover{background-color: orange}
+
+			#menu .items
+			{
+				/*display: none;*/
+				visibility: hidden
+			}
+			
+		</style>
+	</head>
+	<body>
+		<span id="menu"> My menu
+			<span class="items">Item 1</span>
+			<span class="items">Item 2</span>
+			<span class="items">Item 3</span>
+			<span class="items">Item 4</span>
+			<span class="items">Item 5</span>
+			<br><br><div> this is a test</div>
+		</span>
+	</body>
+</html>

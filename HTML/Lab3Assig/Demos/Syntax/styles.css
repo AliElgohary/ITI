@@ -1,0 +1,32 @@
+﻿*
+{
+    padding:0px;
+    margin: 0px;
+	background-color:yellow;
+}
+
+
+.menu
+{
+    /*list-style: none;*/
+    text-align:center;
+}
+
+.menu li:hover
+{
+    background-color: #cc9999;
+}
+
+.menu li:nth-child(2n)/*2n+1=odd & 2n=even*/
+{
+    color:blue;
+}
+.menu li:first-child
+{
+text-transform:capitalize ;
+}
+
+
+h1,p#myid {color:blue;}
+
+	

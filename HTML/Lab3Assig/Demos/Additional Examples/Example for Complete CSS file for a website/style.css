@@ -1,0 +1,82 @@
+body { margin:0 auto; padding:0}
+.float_left { float:left; margin:0; padding:0}
+.float_right { float:right; margin:0; padding:0}
+.align_left { text-align:left; margin:0; padding:0}
+.align_right { text-align:right; margin:0; padding:0}
+h1 { font-family:Arial, Helvetica, sans-serif; font-weight:normal; font-size:18px; margin:0; padding:0; color:#000000}
+p { font-family:Arial, Helvetica, sans-serif; font-size:13px; margin:0; padding:0; color:#7B7B7B}
+.clr { clear:both; margin:0; padding:0; height:1px}
+.bg1 { background:url(../images/back_1.jpg) repeat-x #70615a; margin:0 ; padding:0; width:100%}
+.bg2 { background:url(../images/back_2.png) repeat-y center top; margin:0 auto; padding:0; width:100%}
+.bg3 { background:url(../images/back_3.png) no-repeat center top; margin:0 auto; padding:0; width:100%}
+.wrapper { margin:0 auto; padding:0; width:980px; padding:47px 0 0 0}
+.header { margin:0; *margin:-4px 0 0 0; padding:0 25px; width:930px; background:url(../images/header-bg.png) repeat-x;}
+.logo { margin:0; position:relative; top:-17px; padding:0}
+.logo img { border:none}
+.leftnav { margin:-6px 0 0 0; padding:0}
+.smallnav { margin:0; padding:0}
+.smallnav a { font-family:Arial, Helvetica, sans-serif; color:#2E5A85; text-decoration:none; font-size:11px; margin:0; padding:0}
+.smallnav a img { border:none; margin:0 4px 0 16px; position:relative; top:2px}
+.log { padding:50px 0 0 0; margin:0}
+.log p { font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#544945; margin:2px 8px 0 0; padding:0}
+.inpt { background:url(../images/input-bg.png) no-repeat; width:91px; height:16px; padding:2px 5px; margin:0 6px 0 0}
+.inpt input { font-family:Arial, Helvetica, sans-serif; color:#666666; font-size:11px; margin:0; padding:0; border:0; background:0}
+.go { background:url(../images/go.png) no-repeat; width:30px; height:18px; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#FFF; border:none; font-weight:bold; text-align:center}
+.nav span { color:#ffffff; font-size:8px; *position:relative; *left:12px}
+.banner { background:#e5e5e5; margin:0; padding:3px 0 0 0; text-align:center}
+.contentbg { background:url(../images/cont-bg.jpg) repeat-y; margin:-4px 0 0 0; padding:4px 16px 0; width:948px}
+.leftcont { width:660px; margin:0; padding:0}
+.rightcont { width:245px}
+.welcome { margin:0 0 20px 0}
+.welcome h1 { margin:0 0 8px 0}
+.welcome a { background:#bad1e7; margin:5px 0 0 0; display:block; width:60px; padding:2px 15px; border-radius:5px; border:solid 1px #bad1e7; color:#333333; font-family:Arial, Helvetica, sans-serif; font-size:12px; text-decoration:none; text-align:center}
+.news { margin:0 0 10px 0; padding:0; width:654px}
+.news h1 { background:url(../images/newsh.png) no-repeat; padding:4px 20px 0; width:614px; height:26px; font-weight:bold; font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#FFFFFF}
+.newscont { background:#eaeaea; margin:3px 0 0 0; padding:12px 14px 0}
+.first { margin:0; padding:0 0 12px 0; display:block}
+.first img { margin:0; padding:0; border:solid 5px #999999}
+.firstcont {
+	margin:2px 0;
+	padding:0;
+	width:470px;
+	margin-left: 15px;
+}
+.firstcont h2 { font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#70615A; margin:0 0 2px 0; padding:0; font-style:italic; font-weight:normal}
+.firstcont p { font-size:12px; color:#888888; margin:0; padding:0; font-family:Arial, Helvetica, sans-serif}
+.firstcont a { font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#5D8FC7; text-decoration:none; margin:0; padding:0; font-weight:bold}
+.firstcont a img { margin:0 7px 0 0; padding:0; border:none; position:relative; top:5px}
+.sponsers { margin:0; padding:0}
+.add1 { margin:0 0 10px 0; text-decoration:none; background:url(../images/add1-bg.png) no-repeat; width:213px; height:71px; display:block; padding:8px 15px}
+.add1 img { border:none}
+.add1 p { font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#BD3925; margin:15px 0 0 0; padding:0; font-weight:bold; text-decoration:none; width:136px}
+.add2 { margin:0 0 15px 0; text-decoration:none; background:url(../images/add2-bg.png) no-repeat; width:203px; height:69px; display:block; padding:10px 15px 8px 25px}
+.add2 img { border:none}
+.add2 p { font-family:Arial, Helvetica, sans-serif; width:127px; font-size:18px; margin:23px 0 0 0; padding:0; color:#FFFFFF; font-weight:bold}
+.dates { margin:0 0 10px 0; padding:0}
+.dates h1 { margin:0 0 5px 0}
+.about h1 { margin:0 0 10px 0}
+.about p { margin:10px 0}
+.about a { background:#bad1e7; margin:5px 0 0 0; display:block; width:60px; padding:2px 15px; border-radius:5px; border:solid 1px #bad1e7; color:#333333; font-family:Arial, Helvetica, sans-serif; font-size:12px; text-decoration:none; text-align:center}
+.footer { margin:0 auto; padding:10px 0 20px; width:980px}
+.leftfooter { width:705px; margin:5px 0 0 0; padding:0}
+.footernav { margin:0; padding:0}
+.footernav a { font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#FFF; text-decoration:none; margin:0 12px 0 0; padding:0 }
+.leftfooter p { font-size:11px; color:#FFF; margin:5px 0 0; padding:0}
+.leftfooter p span { font-size:12px; font-weight:bold}
+.rightfooter { width:180px; margin:0; padding:0}
+.rightfooter p { font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#ffffff; margin:-10px 0 0 0; padding:0; font-weight:bold}
+.rightfooter p img { margin:0 0 0 7px; position:relative; top:10px}
+
+
+
+#news-container
+{
+	width: 620px;
+	margin: auto;
+	margin-top: 1px;
+}
+
+#news-container ul li div
+{
+
+}

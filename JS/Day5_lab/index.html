@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <button id="timeAndDateButton">Get Time and Date</button>
+      <span id="timeAndDateSpan"></span>
+    </div>
+    <br />
+    <button id="validEmail">Validate Email</button><br /><br />
+    <button id="getFullNameAndEmailButton">Validate Fullname and Email</button><br /><br />
+
+    <!-- Use pattern attribute, without using JavaScript code -->
+    <form>
+      <label for="fullName">Full Name:</label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        pattern="^[a-zA-Z]{4,}( [a-zA-Z]{4,})+$"
+        title="Please enter a valid full name"
+        required
+      />
+
+      <input type="submit" value="Submit" />
+    </form>
+    <br />
+    <button id="birthDateButton">Birth Date</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

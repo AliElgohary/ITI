@@ -1,0 +1,31 @@
+<html>
+<head>
+<style>
+#myDIV {
+    background-color:yellow;
+    width:300px;
+    height:200px;
+    opacity:1;
+}
+div{
+	text-align:center;
+	color:red;
+	border:2px solid black;
+}
+div#myDIV div{
+position:relative;
+top:50px;
+left:50px;
+background-color:lightblue;
+opacity:0.2;
+}
+/**/
+</style>
+</head>
+<body>
+<div id="myDIV">
+this will be displayed with different color Opacity<br/>
+<div>Opacity affects both content and background color</div>
+</div>
+</body>
+</html>

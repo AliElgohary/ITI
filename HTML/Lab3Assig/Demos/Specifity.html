@@ -1,0 +1,35 @@
+<HTML>
+
+
+<HEAD>
+
+    <STYLE>
+        a {
+            color: red;
+            background-color: yellow;
+            padding: 15px;
+        }
+        
+        a#blue-btn {
+            background-color: blue;
+        }
+        
+        a.abc {
+            background-color: green!important;
+        }
+        /*
+We want to be able to add the .active class to any button and make it red. This won�t work here because our button has it�s background-color set with an ID selector, which has a higher selector specificity. The rule goes like this:
+
+ID (#id) > Class (.class) > Type (e.g. header)
+
+Specifity also stacks so a#button.active ranks higher than a#button. Using selectors with high specificity will cause you to constantly trump old selectors with even higher ones and eventually result in !important.
+*/
+    </STYLE>
+
+</HEAD>
+
+<BODY>
+    <a href="#" id="blue-btn" class="abc">test</a>
+</BODY>
+
+</HTML>

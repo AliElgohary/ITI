@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/*http://www.senktec.com/2014/01/using-css-display-table-cell-for-columns/*/
+.container {
+  display: table;
+}
+.column {
+  display: table-cell;
+}
+
+.container {
+  display: table;
+}
+.row {
+  display: table-row;
+}
+.column {
+  display: table-cell;
+}
+
+.container2 .column{display:inline}
+
+.column{border: solid 2px red}
+
+</style>
+</head>
+<body>
+<!--1-->
+display:table
+<div class="container">
+		<div class="column">Column 1</div>
+		<div class="column">Column 2</div>
+		<div class="column">Column 3</div>
+</div>
+<hr>
+display:inline
+<div class="container2">
+		<div class="column">Column 1</div>
+		<div class="column">Column 2</div>
+		<div class="column">Column 3</div>
+</div>
+
+<!--2-->	
+<!--
+<div class="container">
+    <div class="row">
+        <div class="column">Column 1</div>
+        <div class="column">Column 2</div>
+        <div class="column">Column 3</div>
+    </div>
+    <div class="row">
+        <div class="column">Column 1</div>
+        <div class="column">Column 2</div>
+        <div class="column">Column 3</div>
+    </div>
+</div>	
+-->
+<!--3-->
+<!--		
+<table>
+    <tr>
+        <td>Column 1</td>
+        <td>Column 2</td>
+        <td>Column 3</td>
+    </tr>
+    <tr>
+        <td>Column 1</td>
+        <td>Column 2</td>
+        <td>Column 3</td>
+    </tr>
+</table>
+-->
+
+</body>
+</html>

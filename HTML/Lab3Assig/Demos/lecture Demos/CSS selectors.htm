@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			*{font-size:22; font-weight: bold}
+			p{color:darkblue}
+			#p1{color:blue}
+			input[type="text"]{color:red}
+			p.EN{text-align: left}
+			.AR{text-align: right}
+			.underlineTxt{text-decoration: underline}
+
+			div p{color:violet}
+			div>p{color:greenyellow}
+			
+			h4~div{color:yellow}
+			h4+div{color:bisque}
+
+			p,div,span{font-size:16px}
+			
+			a:visited{color:yellow}
+			a:link{color:blueviolet}
+			a:hover{color:red}
+
+			input:focus{background-color: black; color:white}
+
+			.menu+a:hover ul>li.menu-item{color:black}
+
+		
+		</style>
+	</head>
+	<body>
+		<p id="p1" class="EN underlineTxt">Welcome to my website</p>
+		<p class="EN">Welcome again!</p>
+
+		<p id="p1_AR" class="AR underlineTxt">اهلا اى حاجة</p>
+		<div class="AR">اهلا تانى</div>
+
+		<label for="Name">Your name</label>
+		<input type="text">
+		<input type="button" value="submit">
+		<hr>
+		<p>-----------------descendant selector------------------</p>
+
+		<div> 
+			<p> I am p direct child of div</p>
+			<span>
+				<p> I am another p descedent from div</p>
+			</span>
+		</div>
+
+		<p>-----------------sibling selector------------------</p>
+		<h4>This is h4</h4>
+		<div> I am div after h4</div>
+
+		<h4>This is another h4</h4>
+		<br>
+		<div> I am div after h4 and br</div>
+		<p>-----------------pseudo class------------------</p>
+		<a href="#" >click here</a>
+
+		<div class="menu">----------------grouping selectors----------</div>
+		<a href="#">
+			<ul>
+				<li class="menu-item">Item 1</li>
+			</ul>
+		</a>
+	</body>
+</html>

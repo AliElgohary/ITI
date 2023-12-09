@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title> CSS Layout Page </title>
+		<style>
+			#header{height:20%;width:100%; position:fixed; left:0px;top:0px;z-index:1}
+			#footer{height:5%}
+			#content{height:100%;position:static;padding-top:20%;z-index:}
+			div.headerFooter{background-color:gray; text-align:center; font-size:20}
+			
+		</style>
+	</head>
+	<body style="margin:0">
+		<div id="header" class="headerFooter"> This is header</div>
+		<div id="content">
+			<span style="width:20%; background-color:green">
+				<ul>
+					<li>item 1</li>
+					<li>item 1</li>
+					<li>item 1</li>
+					<li>item 1</li>
+				</ul>
+			</span>
+			
+			<span style="display:inline; width:60%; background-color:pink">
+				<p style="text-align:center; font-size:30">
+					fkjsdlkfds<br/>
+					jkfdsl
+					dsfds
+					fds<br/>
+					fds
+					f
+					dsf
+					s
+					dfsdfdsfdsfdsf
+				</p>
+			</span>
+			
+			<span  style="width:20%; background-color:red;text-align:right; clear:right">
+				<ul>
+					<li>item 1</li>
+					<li>item 1</li>
+					<li>item 1</li>
+					<li>item 1</li>
+				</ul>
+			</span>
+		</div>
+		
+		<!-- t=prev. div for clearing the float (((OR))) to use clear:right for last span, and clear:left for the next div -->
+		<div id="footer" class="headerFooter" style="clear:left;"> This is footer</div>
+	
+	</body>
+</html>

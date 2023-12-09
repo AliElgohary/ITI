@@ -1,0 +1,48 @@
+body {
+    background-color: #e6d9cc;
+  }
+  h1 {
+    text-align: center;
+  }
+  .PageContent {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  img .logos{
+    width: 300px;
+    height: auto;
+    border-radius: 30px;
+  }
+  .logos{
+    width: 40px;
+  }
+  .contactMe {
+    display: inline-block;
+    align-items: center;
+  }
+  .websiteLogo {
+    height: 40px;
+    width: auto;
+  }
+
+  table {
+    width: 100%;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  
+  table td {
+    padding: 20px;
+    vertical-align: top;
+    width: 33%;
+  }
+  td[colspan="3"] {
+    text-align: center;
+    background-color: #e6d9cc;
+  }
+
+  

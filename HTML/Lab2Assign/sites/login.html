@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="loginStyle.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="./thankyou.html">
+      <div>
+        <label for="userID" hidden>User ID: </label>
+        <input type="hidden" id="userID" name="userID" />
+      </div>
+      <div>
+        <label for="fName">First Name: </label>
+        <input type="text" required minlength="3" id="fName" name="fName" />
+      </div>
+      <div>
+        <label for="lName">Last Name: </label>
+        <input type="text" required minlength="3" id="lName" name="Lame" />
+      </div>
+
+      <div>
+        <label for="mail">E-mail</label>
+        <input type="email" required name="mail" id="mail" />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+      <div>
+        <label for="repeatPassword">Repeat Password:</label>
+        <input
+          type="password"
+          id="repeatPassword"
+          name="repeatPassword"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="birthDate">Birth Date:</label>
+        <input type="date" id="birthDate" name="birthDate" />
+      </div>
+      <div>
+        <label for="userPicture">User Picture:</label>
+        <input type="file" id="userPicture" name="userPicture" />
+      </div>
+      <div>
+        <fieldset>
+          <legend>Gender:</legend>
+          <label><input type="radio" name="gender" value="male" /> Male</label>
+          <label
+            ><input type="radio" name="gender" value="female" /> Female</label
+          >
+        </fieldset>
+      </div>
+      <label for="faculty">Faculty:</label>
+      <select id="faculty" name="faculty">
+        <option value="engineering">Engineering</option>
+        <option value="science">Science</option>
+        <option value="arts">Arts</option>
+      </select>
+
+      <div>
+        <fieldset>
+          <legend>Interests:</legend>
+          <label
+            ><input type="checkbox" name="interests" value="programming" />
+            Programming</label
+          >
+          <label
+            ><input type="checkbox" name="interests" value="reading" />
+            Reading</label
+          >
+          <label
+            ><input type="checkbox" name="interests" value="swimming" />
+            Swimming</label
+          >
+        </fieldset>
+      </div>
+
+      <div>
+        <label for="aboutYou">About You:</label>
+        <textarea id="aboutYou" name="aboutYou"></textarea>
+      </div>
+
+      <div>
+        <label for="agreeTerms">
+          <input type="checkbox" id="agreeTerms" name="agreeTerms" required />
+          I agree to the <a href="#" target="_blank">terms and conditions</a>
+        </label>
+      </div>
+      <div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </body>
+</html>

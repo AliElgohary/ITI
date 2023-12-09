@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+    <style>
+      body {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function getUrlParameter(name) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(name) || "";
+      }
+
+      var username = getUrlParameter("userName");
+      document.write(
+        'Welcome <span style="color: blue;">' + username + "</span>"
+      );
+    </script>
+  </body>
+</html>

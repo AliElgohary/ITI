@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+#header {
+  text-align: center;
+}
+input:hover{
+  background-color: white;
+}
+p,
+div,
+span {
+  font-family: "Lucida Unicode Calligraphy", sans-serif;
+}
