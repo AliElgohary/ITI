@@ -71,3 +71,7 @@ form.addEventListener("submit", function (e) {
     alert("Please enter name and password correctly");
   }
 });
+
+// 3- and 4- handeled in external folder called redoFormUsingHtmlCss
+
+// 5- handeled in external folder called photoGallery
