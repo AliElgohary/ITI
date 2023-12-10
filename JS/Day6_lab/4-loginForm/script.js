@@ -1,7 +1,6 @@
 // 6- auto scrolling every half seconds
 function checktermsCondition() {
   let termsWindow = window.open("terms.html");
-
   if (termsWindow) {
     let scrollInterval = setInterval(function () {
       termsWindow.scrollBy(0, 100);

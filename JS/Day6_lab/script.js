@@ -31,7 +31,8 @@ function stopClock() {
 }
 
 document.addEventListener("keydown", function (e) {
-  if (e.key.toLowerCase() === "w" && (e.altKey || e.key === "Alt")) {
+  console.log(e.key);
+  if (e.key === "w" && e.altKey) {
     stopClock();
   }
 });

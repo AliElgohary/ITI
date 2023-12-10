@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="welcome.html" method="get">
+      <div>
+        <label for="fullNmae">Full Name</label>
+        <input type="text" name="fullNmae" id="fullNmae" required placeholder="Enter Your Name"/>
+      </div>
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+
+      <div>
+        <label for="cities">Cities</label>
+        <select name="cities" id="cities">
+          <option value="cairo">Cairo</option>
+          <option value="alexandria">Alexandria</option>
+          <option value="monofia">Monofia</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label for="repeatePass">re-enter your password</label>
+        <input type="password" id="repeatePass" name="repeatePass" />
+      </div>
+      <div class="checkbox-container">
+          <label for="termsCondition">I accept terms and condition</label>
+        <input type="checkbox" name="termsCondition" id="termsCondition" />
+      </div>
+      <button type="submit">Register</button>
+    </form>
+
+    <script src="script.js"></script>
+  </body>
+</html>

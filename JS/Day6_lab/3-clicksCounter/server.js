@@ -11,6 +11,7 @@ function alertScore() {
 }
 
 function gameOver() {
+  counter = 0;
   alert("Game Over");
 }
 
