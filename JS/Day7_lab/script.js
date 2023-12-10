@@ -75,3 +75,7 @@ form.addEventListener("submit", function (e) {
 // 3- and 4- handeled in external folder called redoFormUsingHtmlCss
 
 // 5- handeled in external folder called photoGallery
+
+// 6- handeled in external folder called opacityGallery
+
+// 7- handeled in external folder called useDom
