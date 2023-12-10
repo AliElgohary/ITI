@@ -22,9 +22,11 @@ function getFullNmae() {
 
   if (!isNameValid(fullName)) {
     validationSpan.textContent = "Invalid name";
+    fullNameInput.style.backgroundColor = "grey";
     fullNameInput.parentNode.appendChild(validationSpan);
     fullNameInput.focus();
   } else {
+    fullNameInput.style.backgroundColor = "white";
     validationSpan.textContent = "";
   }
 }
@@ -36,11 +38,17 @@ function handlePassword() {
   let password = document.getElementById("password");
   let passwordRepeat = document.getElementById("repeatePass");
   if (passwordRepeat.value !== password.value) {
+    passwordRepeat.style.backgroundColor = 'grey';
     validationSpan.textContent = "enter password correctly";
     passwordRepeat.parentNode.appendChild(validationSpan);
     passwordRepeat.focus();
   } else {
+    passwordRepeat.style.backgroundColor = 'white';
     validationSpan.textContent = "";
   }
 }
 document.getElementById("repeatePass").addEventListener("blur", handlePassword);
+
+
+// f- Change the background color of the text input when it’s not valid  is handeled in previous cases.
+// g- handeled in in index.html
