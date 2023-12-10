@@ -1,4 +1,4 @@
-// 2- c- when in focus use blue borders
+// 1- c- when in focus use blue borders
 let fullName = document.getElementById("fullNmae");
 fullName.addEventListener("focus", function () {
   this.style.border = "1px solid blue";
@@ -18,7 +18,7 @@ validationSpan.style.color = "red";
 
 const fullNameInput = document.getElementById("fullNmae");
 function getFullNmae() {
-  const fullName = fullNameInput.value.trim();
+  let fullName = fullNameInput.value.trim();
 
   if (!isNameValid(fullName)) {
     validationSpan.textContent = "Invalid name";
@@ -38,17 +38,36 @@ function handlePassword() {
   let password = document.getElementById("password");
   let passwordRepeat = document.getElementById("repeatePass");
   if (passwordRepeat.value !== password.value) {
-    passwordRepeat.style.backgroundColor = 'grey';
+    passwordRepeat.style.backgroundColor = "grey";
     validationSpan.textContent = "enter password correctly";
     passwordRepeat.parentNode.appendChild(validationSpan);
     passwordRepeat.focus();
+    return false
   } else {
-    passwordRepeat.style.backgroundColor = 'white';
+    passwordRepeat.style.backgroundColor = "white";
     validationSpan.textContent = "";
+    return true;
   }
 }
 document.getElementById("repeatePass").addEventListener("blur", handlePassword);
 
-
 // f- Change the background color of the text input when it’s not valid  is handeled in previous cases.
 // g- handeled in in index.html
+
+// 2- handle onSubmit event
+let form = document.querySelector("form");
+
+function validateForm() {
+  const fullName = fullNameInput.value.trim();
+  const isFullNameValid = isNameValid(fullName);
+  const isPasswordValid = handlePassword(); 
+
+  return isFullNameValid && isPasswordValid;
+}
+
+form.addEventListener("submit", function (e) {
+  if (!validateForm()) {
+    e.preventDefault();
+    alert("Please enter name and password correctly");
+  }
+});

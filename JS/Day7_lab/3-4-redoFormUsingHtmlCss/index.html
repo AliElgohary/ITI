@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      form:valid .validation-image.valid-form {
+        display: inline-block;
+      }
+
+      .validation-image {
+        width: 20px;
+        height: 20px;
+        display: none;
+      }
+
+      input:invalid + .validation-image.notvalid,
+      select:invalid + .validation-image.notvalid,
+      textarea:invalid + .validation-image.notvalid,
+      input:valid + .validation-image.valid,
+      select:valid + .validation-image.valid,
+      textarea:valid + .validation-image.valid {
+        display: inline-block;
+      }
+
+      input:invalid + .validation-image.valid,
+      select:invalid + .validation-image.valid,
+      textarea:invalid + .validation-image.valid,
+      input:valid + .validation-image.notvalid,
+      select:valid + .validation-image.notvalid,
+      textarea:valid + .validation-image.notvalid {
+        display: none;
+      }
+      input:invalid {
+        border: 1px solid red;
+      }
+
+      input:valid {
+        border: 1px solid green;
+      }
+      input:invalid + span {
+        color: red;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="welcome.html" method="get">
+      <div>
+        <label for="fullName">Full Name</label>
+        <input
+          type="text"
+          name="fullName"
+          id="fullName"
+          required
+          pattern="[a-zA-Z]{3,}"
+        />
+        <img
+          src="notvalid.png"
+          alt="Not Valid"
+          class="validation-image notvalid"
+        />
+        <img src="valid.png" alt="Valid" class="validation-image valid" />
+      </div>
+
+      <div>
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" required />
+        <img
+          src="notvalid.png"
+          alt="Not Valid"
+          class="validation-image notvalid"
+        />
+        <img src="valid.png" alt="Valid" class="validation-image valid" />
+      </div>
+
+      <div>
+        <label for="cities">Cities</label>
+        <select name="cities" id="cities" required>
+          <option value="cairo">Cairo</option>
+          <option value="alexandria">Alexandria</option>
+          <option value="monofia">Monofia</option>
+        </select>
+        <img
+          src="notvalid.png"
+          alt="Not Valid"
+          class="validation-image notvalid"
+        />
+        <img src="valid.png" alt="Valid" class="validation-image valid" />
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required />
+        <img
+          src="notvalid.png"
+          alt="Not Valid"
+          class="validation-image notvalid"
+        />
+        <img src="valid.png" alt="Valid" class="validation-image valid" />
+      </div>
+
+      <div>
+        <label for="repeatePass">Re-enter your password</label>
+        <input type="password" id="repeatePass" name="repeatePass" required />
+        <img
+          src="notvalid.png"
+          alt="Not Valid"
+          class="validation-image notvalid"
+        />
+        <img src="valid.png" alt="Valid" class="validation-image valid" />
+      </div>
+
+      <div class="checkbox-container">
+        <label for="termsCondition">I accept terms and conditions</label>
+        <input
+          type="checkbox"
+          name="termsCondition"
+          id="termsCondition"
+          required
+        />
+        <img
+          src="notvalid.png"
+          alt="Not Valid"
+          class="validation-image notvalid"
+        />
+        <img src="valid.png" alt="Valid" class="validation-image valid" />
+      </div>
+
+      <button type="submit">Register</button>
+      <img
+        src="valid.png"
+        alt="Form Valid"
+        class="validation-image valid-form"
+      />
+    </form>
+  </body>
+</html>
