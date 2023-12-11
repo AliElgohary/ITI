@@ -31,10 +31,6 @@ document.getElementById("userForm").addEventListener("submit", function (e) {
 
 function resetForm() {
   document.getElementById("userForm").reset();
-  document.querySelectorAll('input[name="title"]').forEach((radio) => {
-    radio.checked = false;
-  });
-  document.getElementById("save").checked = false;
 }
 
 function renderUsersTable() {
@@ -42,7 +38,7 @@ function renderUsersTable() {
   let table = document.createElement("table");
   let thead = document.createElement("thead");
   let headerRow = document.createElement("tr");
-  let headers = ["Title", "Name", "Email", "Card Type", "Save", "Actions"];
+  let headers = ["Title", "Name", "Email", "Card", "Edit", "Delete"];
   headers.forEach((header) => {
     let th = document.createElement("th");
     th.textContent = header;
