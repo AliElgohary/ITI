@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function setCookie(user, value) {
+        document.cookie = `${user}=${value}`;
+      }
+      function getCookieArray() {
+        const cookies = document.cookie.split(";");
+        cookies.forEach((cookie) => {
+          const [name, value] = cookie.trim().split("=");
+          console.log(name, value);
+        });
+      }
+      
+      function getCookieValue() {
+        let userCookie = document.cookie
+          .split(";")
+          .find((c) => c.includes("user"));
+        userName = userCookie.split("=")[0];
+        let value = userCookie.split("=")[1];
+        console.log("user name is", value);
+        return value;
+      }
+
+      setCookie("user", "Ahmed");
+      getCookieValue();
+      getCookieArray();
+    </script>
+  </body>
+</html>
