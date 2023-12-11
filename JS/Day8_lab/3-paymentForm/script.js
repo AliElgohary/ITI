@@ -1,6 +1,12 @@
 let users = [];
 let editingIndex = -1;
 
+// Load data from local storage on page load
+document.addEventListener("DOMContentLoaded", function () {
+  loadUsersFromLocalStorage();
+  renderUsersTable();
+});
+
 document.getElementById("userForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -25,6 +31,7 @@ document.getElementById("userForm").addEventListener("submit", function (e) {
     users.push(userData);
   }
 
+  saveUsersToLocalStorage();
   renderUsersTable();
   resetForm();
 });
@@ -94,8 +101,20 @@ function editUser(index) {
 
 function deleteUser(index) {
   users.splice(index, 1);
+  saveUsersToLocalStorage();
   renderUsersTable();
   resetForm();
+}
+
+function saveUsersToLocalStorage() {
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
+function loadUsersFromLocalStorage() {
+  let storedUsers = localStorage.getItem("users");
+  if (storedUsers) {
+    users = JSON.parse(storedUsers);
+  }
 }
 
 let container = document.getElementById("tableContainer");
