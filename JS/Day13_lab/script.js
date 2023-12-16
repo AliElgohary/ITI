@@ -1,4 +1,4 @@
-class Employee {
+export class Employee {
   name = "";
   dept = "general";
 
@@ -8,7 +8,7 @@ class Employee {
   }
 }
 
-class Manager extends Employee {
+export class Manager extends Employee {
   report = [];
 
   constructor(name, dept, report) {
@@ -17,7 +17,7 @@ class Manager extends Employee {
   }
 }
 
-class WorkerBee extends Employee {
+export class WorkerBee extends Employee {
   projects = [];
 
   constructor(name, dept, projects) {
@@ -26,7 +26,7 @@ class WorkerBee extends Employee {
   }
 }
 
-class SalesPerson extends WorkerBee {
+export class SalesPerson extends WorkerBee {
   quota = 100;
   dept = "sales";
 
@@ -37,7 +37,7 @@ class SalesPerson extends WorkerBee {
   }
 }
 
-class Engineer extends WorkerBee {
+export class Engineer extends WorkerBee {
   machine = "";
   dept = "engineering";
 
@@ -47,18 +47,3 @@ class Engineer extends WorkerBee {
     this.machine = machine || "";
   }
 }
-
-const employee1 = new Employee("Ali", "Marketing");
-console.log("employee:", employee1);
-
-const manager1 = new Manager("Mohamed", "Sales", [employee1]);
-console.log("manager:", manager1);
-
-const worker1 = new WorkerBee("Salem", "Development", ["ProjectA", "ProjectB"]);
-console.log("workerBee:", worker1);
-
-const salesPerson1 = new SalesPerson("Mahmoud", "Sales", 150);
-console.log("salesPerson:", salesPerson1);
-
-const engineer1 = new Engineer("Zaki", "Engineering", "MachineX");
-console.log("engineer:", engineer1);
