@@ -1,0 +1,46 @@
+$textColor: red;
+@use "base";
+
+@mixin p-style {
+  background-color: lighten($color: #000000, $amount: 50);
+  margin: 20px;
+  color: $textColor;
+}
+
+.error {
+  border: 1px yellow;
+  background-color: red;
+  border-radius: 5px;
+}
+$theme: dark;
+
+body {
+  @if $theme == light {
+    background-color: #fff;
+    color: #000;
+  } @else {
+    background-color: #000;
+    color: #fff;
+  }
+  @for $i from 1 to 6 {
+    h#{$i}{
+        color: aqua;
+    }
+  }
+  div {
+    span {
+      border-radius: base.$bRadius;
+      color: $textColor;
+      background: grey;
+    }
+    p {
+      @include p-style;
+    }
+  }
+  p {
+    @extend .error;
+  }
+  span {
+    background-color: base.$bgColor;
+  }
+}

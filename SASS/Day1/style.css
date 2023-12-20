@@ -1,0 +1,40 @@
+.error, body p {
+  border: 1px yellow;
+  background-color: red;
+  border-radius: 5px;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+}
+body h1 {
+  color: aqua;
+}
+body h2 {
+  color: aqua;
+}
+body h3 {
+  color: aqua;
+}
+body h4 {
+  color: aqua;
+}
+body h5 {
+  color: aqua;
+}
+body div span {
+  border-radius: 4px;
+  color: red;
+  background: grey;
+}
+body div p {
+  background-color: gray;
+  margin: 20px;
+  color: red;
+}
+body span {
+  background-color: #123451;
+}
+
+/*# sourceMappingURL=style.css.map */
