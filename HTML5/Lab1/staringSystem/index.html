@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 30px;
+            margin: 0;
+        }
+
+        .star {
+            width: 30px;
+            height: 30px;
+            background-size: cover;
+            background-image: url("empty_star.png");
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .star:hover {
+            background-image: url("filled_star.png");
+        }
+
+        .notActive {
+            background-image: url("empty_star.png");
+        }
+
+        .active {
+            background-image: url("filled_star.png");
+            transform: scale(1.2);
+        }
+    </style>
+    <title>Product Feedback</title>
+</head>
+<body>
+    <div class="star" data-index="1"></div>
+    <div class="star" data-index="2"></div>
+    <div class="star" data-index="3"></div>
+    <div class="star" data-index="4"></div>
+    <div class="star" data-index="5"></div>
+
+    <script>
+        const stars = document.querySelectorAll(".star");
+
+        stars.forEach((star, clickedIndex) => {
+            star.addEventListener("click", () => {
+                stars.forEach((s, i) => {
+                    const isActive = s.classList.contains("active");
+
+                    if (i <= clickedIndex) {
+                        s.classList.toggle("active", !isActive);
+                        s.classList.remove("notActive");
+                    } else {
+                        s.classList.remove("active");
+                        s.classList.toggle("notActive", !isActive);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
