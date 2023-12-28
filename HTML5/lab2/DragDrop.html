@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #dropzone {
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+      }
+
+      #dragImage {
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      
+    </div>
+
+    <img
+      id="dragImage"
+      src="./canvas/sad.png"
+      draggable="true"
+      ondragstart="drag(event)"
+    />
+    
+
+    <script>
+      function allowDrop(event) {
+        event.preventDefault();
+      }
+
+      function drag(event) {
+        event.dataTransfer.setData("text", event.target.id);
+      }
+
+      function drop(event) {
+        event.preventDefault();
+        const data = event.dataTransfer.getData("text");
+        const draggedElement = document.getElementById(data);
+        const dropzone = document.getElementById("dropzone");
+
+        dropzone.innerHTML = "";
+
+        dropzone.appendChild(draggedElement.cloneNode(true));
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      canvas {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="300" height="300"></canvas>
+
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
+
+      const sadImage = new Image();
+      sadImage.src = "sad.png";
+
+      const smileyImage = new Image();
+      smileyImage.src = "smiley.png";
+
+      sadImage.onload = () => {
+        ctx.drawImage(sadImage, 0, 0, canvas.width, canvas.height);
+      };
+
+      canvas.addEventListener("mousedown", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(smileyImage, 0, 0, canvas.width * 1.2, canvas.height);
+      });
+
+      canvas.addEventListener("mouseup", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(sadImage, 0, 0, canvas.width, canvas.height);
+      });
+
+      canvas.addEventListener("mouseover", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(smileyImage, 0, 0, canvas.width, canvas.height);
+      });
+    </script>
+  </body>
+</html>
