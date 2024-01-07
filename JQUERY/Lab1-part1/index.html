@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .black {
+        background-color: black;
+        color: white;
+        border: 1px solid white;
+      }
+
+      .white {
+        background-color: white;
+        color: black;
+        border: 1px solid black;
+      }
+
+      .yellow {
+        background-color: yellow;
+        color: black;
+        border: 1px solid black;
+      }
+
+      .pink {
+        background-color: pink;
+        color: black;
+        border: 1px solid black;
+      }
+
+      .man {
+        background-color: red;
+      }
+      .your-email {
+        background-color: aqua;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="container1"></section>
+
+    <section class="container2">
+      <p>google.com</p>
+      <p>yahoo.com</p>
+      <p>linkedin.com</p>
+    </section>
+
+    <section class="container3">
+      <img src="./3.jpg" alt="" />
+    </section>
+
+    <section class="container4">
+      <table>
+        <tr>
+          <td class="col-name">John</td>
+          <td class="col-age">25</td>
+          <td class="col-email your-email">john@example.com</td>
+        </tr>
+        <tr>
+          <td class="col-name">Mohsen</td>
+          <td class="col-age">30</td>
+          <td class="col-email">mohsen@example.com</td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="container6">
+      <form id="my-form">
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" value="InitialValue" />
+        <br />
+        <label for="my-checkbox">Check me:</label>
+        <input type="checkbox" name="my-checkbox" id="my-checkbox" />
+      </form>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".container1").append('<div class="black">Appended Black Div</div>');
+
+        $(".container1").prepend(
+          '<div class="white">Prepended White Div</div>'
+        );
+        $(".container1").append('<div class="pink">Pink Div</div>');
+
+        $(".container1")
+          .find(".pink")
+          .before('<div class="yellow">Yellow Div Before Pink</div>');
+      });
+
+      $(document).ready(function () {
+        $(".container2 p").each(function () {
+          let textContent = $(this).text();
+          $(this).replaceWith(
+            '<a href="http://' + textContent + '">' + textContent + "</a>"
+          );
+        });
+
+        $(document).ready(function () {
+          $(".container3 img").wrapAll('<figure class="moreInfo"></figure>');
+          $(".container3 figure").append("<figcaption>Tiger</figcaption>");
+        });
+      });
+
+      $(document).ready(function () {
+        $(".container4 .col-age").empty();
+        $(".container4 td:contains('Mohsen')").addClass("man");
+        $(".container4 td").toggleClass("your-email");
+      });
+
+      $(document).ready(function () {
+        $(".container6 input[name='username']").val("Ali Elgohary");
+        $("#my-form #my-checkbox").prop("checked", true);
+      });
+    </script>
+  </body>
+</html>

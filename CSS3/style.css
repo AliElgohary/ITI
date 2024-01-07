@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.curvedBorder {
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+p {
+  column-count: 3;
+}
+
+.vertical {
+  position: absolute;
+  transform: rotate(-90deg);
+  font-size: 24px;
+  color: #333;
+}
+
+.rotating-image {
+  width: 200px;
+  height: 150px;
+}
+
+.rotating-image:hover {
+  transform: rotate(45deg);
+  width: 250px;
+  height: 200px;
+}
+
+@keyframes customAnimation {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateX(200px) rotate(180deg) scale(1.5);
+  }
+  100% {
+    transform: translateX(400px) rotate(360deg) scale(2);
+  }
+}
+
+.animated-image {
+  width: 100px;
+  height: 75px;
+
+  animation: customAnimation 4s infinite;
+}
+
+.animated-image:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tigerWalk {
+    0% {
+        transform: translateX(0) scaleX(1);
+    }
+    25% {
+        transform: translateX(100px) scaleX(1);
+    }
+    50% {
+        transform: translateX(200px) scaleX(-1);
+    }
+    75% {
+        transform: translateX(100px) scaleX(-1);
+    }
+    100% {
+        transform: translateX(0) scaleX(1);
+    }
+}
+
+.tiger-image {
+    height: auto;
+    animation: tigerWalk 4s infinite;
+    transform-origin: left center;
+    transition: transform 0.3s ease; /* Added transition for hover effect */
+}
+
+.tiger-image:hover {
+    transform: rotateY(180deg) translateX(100px);
+}
