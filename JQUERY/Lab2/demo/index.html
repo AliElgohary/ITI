@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            border: 5px solid;
+            padding: 10px;
+            margin: 10px;
+        }
+        
+        span {
+            border: 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div>
+        <p>web design</p>
+    </div> -->
+    <span>
+        span section
+    </span>
+    <!-- <input type="text" value="anything">-->
+    <!-- <button id="hide">hide</button>
+    <button id="show">show</button>
+    <button id="toggle">toggle</button> -->
+    <p class="one">color red</p>
+    <p class="one">color blue</p>
+    <p>color green</p>
+    <p>color orange</p>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js">
+    </script>
+    <script>
+        // console.log($("div").width())
+        // console.log($("div").outerWidth())
+        // console.log($("div").outerWidth(true))
+
+        // console.log($("div").outerHeight(true))
+
+
+        // $("button").on("click mouseover", function() {
+        //     $("div").css("background", "red")
+        // })
+        // $("div").on("click", "p", function() {
+        //     $("div").css("background", "red")
+        // })
+        // $("div p").on("click", function() {
+        //     $("div").css("background", "red")
+        // })
+        var c = "red";
+        // $("div").on("click", "p", {
+        //     color: c
+        // }, function(event) {
+        //     $("div").css("background", event.data.color)
+        // })
+        // $("div").on({
+        //     click: function() {
+        //         alert("event click")
+        //     },
+        //     mouseout: function() {
+        //         alert("event mousemout")
+        //     }
+        // })
+        // $("div").one("click", function() {
+        //     alert("anything")
+        // })
+        // $("input").on("select", function() {
+        //     $(this).css("background", "red")
+        // })
+
+        // $("button").on("click", function() {
+
+        //     $("input").trigger("select")
+        // })
+        // $("button").trigger("click");
+        // $("#hide").on("click", function() {
+        //     $("div").slideUp(3000)
+        // })
+        // $("#show").on("click", function() {
+        //     $("div").slideDown(3000)
+        // })
+        // $("#toggle").on("click", function() {
+        //     $("div").slideToggle(3000)
+        // })
+
+        // $("div").animate({
+        //     width: "400px",
+        //     height: "400px",
+        //     background: "red"
+        // }, 3000, function() {
+        //     $(this).css("background", "red")
+        // })
+
+        // $.fn.styleColor = function() {
+        //     $(this).css("background", "red")
+        //     $(this).css("color", "yellow")
+        // }
+        // $=>jQuery
+
+        // var sign = $.noConflict()
+        // sign.fn.styleColor = function(c1, c2) {
+        //     sign(this).css("background", c1)
+        //     sign(this).css("color", c2)
+        // }
+        // sign("div").styleColor("red", "yellow");
+        // sign("span").styleColor("blue", "green")
+
+        // var colors = ["red", "blue", "green", "orange"]
+        // $("p").each(function(index) {
+        //     debugger;
+        //     $(this).css("color", colors[index])
+        // })
+        // $("p").filter(".one").css("color", "orange")
+
+        $("p").filter($(".one")).css("color", "red")
+    </script>
+</body>
+
+</html>

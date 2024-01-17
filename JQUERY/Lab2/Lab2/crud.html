@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+  <title>CRUD</title>
+  <style type="text/css">
+    table {
+      border-collapse: collapse;
+      
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <h3>Add New Person</h3>
+  <label>Name</label>
+  <input type="text" id="name" name="name" />
+  <br><br>
+  <label>Age</label>
+  <input type="text" id="age" name="age" />
+  <br><br>
+  <button id="add">Add new Person</button>
+  <br>
+  <hr>
+  <h3>Persons List</h3>
+  <input type="text" placeholder="search" id="search-item" />
+  <button id="search">Search</button>
+  <br><br>
+  <table id="persons-list">
+    <thead>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Delete</th>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    var persons = [];
+
+    function addPerson(name, age) {
+      persons.push({
+        name: name,
+        age: age
+      });
+    }
+
+    function renderPersons() {
+      var tableBody = $('#persons-list tbody');
+      tableBody.empty();
+
+      persons.forEach(function (person, index) {
+        var row = $('<tr>');
+        row.append('<td>' + person.name + '</td>');
+        row.append('<td>' + person.age + '</td>');
+        row.append('<td><button class="delete" data-index="' + index + '">Delete</button></td>');
+        tableBody.append(row);
+      });
+    }
+
+    function deletePerson(index) {
+      persons.splice(index, 1);
+    }
+
+    $('#add').click(function () {
+      var name = $('#name').val();
+      var age = $('#age').val();
+
+      if (name && age) {
+        addPerson(name, age);
+        renderPersons();
+
+      }
+    });
+
+    $('#search').click(function () {
+      var searchItem = $('#search-item').val();
+      var filteredPersons = persons.filter(function (person) {
+        return person.name.toLowerCase().includes(searchItem) || person.age.toString().includes(searchItem);
+      });
+
+      persons = filteredPersons;
+      renderPersons();
+    });
+
+	
+    $('#persons-list').on('click', '.delete', function () {
+      var index = $(this).data('index');
+      deletePerson(index);
+      renderPersons();
+    });
+  </script>
+</body>
+
+</html>

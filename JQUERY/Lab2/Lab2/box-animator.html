@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html
+  xmlns:mso="urn:schemas-microsoft-com:office:office"
+  xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
+>
+  <head>
+    <title>Box Animator</title>
+    <style type="text/css">
+      .box {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        background-color: red;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="box"></div>
+
+
+	<script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        var div = $(".box");
+        div.animate(
+          {
+            left: "250px",
+          },
+          1500,
+          function () {
+            div.animate(
+              {
+                top: "150px",
+                left: "250px",
+                width: "150px",
+                height: "150px",
+                backgroundColor: "green",
+              },
+              1500,
+              function () {
+                div.animate(
+                  {
+                    left: "0px",
+                    top: "150px",
+                    width: "120px",
+                    height: "120px",
+                    backgroundColor: "yellow",
+                  },
+                  1500,
+                  function () {
+                    div.animate(
+                      {
+                        left: "0px",
+                        top: "0px",
+                        width: "100px",
+                        height: "100px",
+                        backgroundColor: "red",
+                      },
+                      1500
+                    );
+                  }
+                );
+              }
+            );
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

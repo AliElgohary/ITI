@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+
+<head>
+  <title>Box Generator</title>
+  <style type="text/css">
+	body{
+		display: flex;
+	}
+    div {
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+
+    .green {
+      background-color: green;
+    }
+
+    .orange {
+      background-color: orange;
+    }
+  </style>
+  <script  src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div class="red"></div>
+
+  <script>
+    $(document).ready(function () {
+      $('div').hover(
+        function () {
+          var colors = ['red', 'blue', 'green', 'orange'];
+          var randomColor = colors[Math.floor(Math.random() * colors.length)];
+          $(this).removeClass().addClass(randomColor);
+        },
+      );
+
+      $('div').click(function () {
+        var colorClass = $(this).attr('class');
+        var newBox = $('<div>').addClass(colorClass);
+        $('body').append(newBox);
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+	<title>Font Resizer</title>
+	<style type="text/css">
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: black;
+			position: absolute;
+			
+            top: 50%;
+            left: 50%;
+		}
+
+		button {
+			padding: 10px 20px 10px 20px;
+		}
+
+
+
+		p.error {
+			color: red;
+		}
+	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+	<script type="text/javascript" src="js/font-resizer.js"></script>
+
+</head>
+<body>
+	<p class="content">Hello, Open Sourcians</p>
+	<button id="decrease"> - </button>
+	<button id="increase"> + </button>
+	<br>
+	<p class="error"></p>
+
+	<script>
+		$(document).ready(function () {
+			var minFontSize = 12;
+			var maxFontSize = 36;
+
+			function updateFontSize(change) {
+				var currentSize = parseInt($('.content').css('font-size'));
+				var newSize = currentSize + change;
+				if (newSize >= minFontSize && newSize <= maxFontSize) {
+					$('.content').css('font-size', newSize + 'px');
+					$('.error').text('');
+				} else {
+					$('.error').text('Font size limit reached.');
+				}
+			}
+			$('#decrease').click(function () {
+				updateFontSize(-2);
+			});
+
+			$('#increase').click(function () {
+				updateFontSize(2);
+			});
+		});
+	</script>
+</body>
+</html>
