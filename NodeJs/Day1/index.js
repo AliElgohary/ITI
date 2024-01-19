@@ -1,4 +1,4 @@
-console.log("hello world");
+
 const fs = require("fs");
 
 users = [
