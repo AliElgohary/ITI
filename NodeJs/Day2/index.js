@@ -1,16 +1,27 @@
 const http = require("http");
+const fs = require("fs");
 
-let Users = [
-  { username: "Ali", email: "Ali@example.com", id: 1 },
-  { username: "Salem", email: "Salem@example.com", id: 2 },
-  { username: "Ahmed", email: "Ahmed@example.com", id: 3 },
-];
+let Users = [];
+
+// Read user data from JSON file
+fs.readFile("users.json", "utf8", (err, data) => {
+  if (err) {
+    console.error("Error reading users.json:", err);
+  } else {
+    try {
+      Users = JSON.parse(data);
+    } catch (error) {
+      console.error("Error parsing JSON from users.json:", error);
+    }
+  }
+});
+// ... (unchanged code)
 
 const server = http.createServer((req, res) => {
   if (req.url == "/" && req.method == "GET") {
     res.end(JSON.stringify(Users));
   } else if (req.url == "/" && req.method == "POST") {
-    body = "";
+    let body = "";
     req.on("data", (chunk) => {
       body += chunk;
     });
@@ -19,7 +30,18 @@ const server = http.createServer((req, res) => {
         const jsonData = JSON.parse(body);
         jsonData.id = Users.length + 1;
         Users.push(jsonData);
-        res.end();
+
+        // Write updated user data to the file
+        fs.writeFile("users.json", JSON.stringify(Users), (err) => {
+          if (err) {
+            console.error("Error writing to users.json:", err);
+            res.statusCode = 500;
+            res.end("Internal Server Error");
+          } else {
+            // Send a success response to the client
+            res.end(JSON.stringify(Users));
+          }
+        });
       } catch (error) {
         console.error("Error parsing JSON:", error);
         res.statusCode = 400;
@@ -40,13 +62,82 @@ const server = http.createServer((req, res) => {
       try {
         const jsonData = JSON.parse(body);
         const result = Users.find(({ id }) => id == jsonData.id);
-        res.end(JSON.stringify(result));
+
+        if (result) {
+          res.end(JSON.stringify(result));
+        } else {
+          res.end(JSON.stringify({ error: "User not found" }));
+        }
       } catch (error) {
-        res.end(error);
+        console.error("Error parsing JSON:", error);
+        res.statusCode = 400;
+        res.end("Bad Request: Invalid JSON");
+      }
+    });
+  } else if (req.url == "/" && req.method == "PUT") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+    });
+    req.on("end", () => {
+      try {
+        const jsonData = JSON.parse(body);
+        const index = Users.findIndex(({ id }) => id == jsonData.id);
+
+        if (index !== -1) {
+          Users[index] = jsonData;
+
+          fs.writeFile("users.json", JSON.stringify(Users), (err) => {
+            if (err) {
+              console.error("Error writing to users.json:", err);
+              res.statusCode = 500;
+              res.end("Internal Server Error");
+            } else {
+              res.end(JSON.stringify(Users));
+            }
+          });
+        } else {
+          res.end(JSON.stringify({ error: "User not found" }));
+        }
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+        res.statusCode = 400;
+        res.end("Bad Request: Invalid JSON");
+      }
+    });
+  } else if (req.url == "/" && req.method == "DELETE") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+    });
+    req.on("end", () => {
+      try {
+        const jsonData = JSON.parse(body);
+        const index = Users.findIndex(({ id }) => id == jsonData.id);
+
+        if (index !== -1) {
+          Users.splice(index, 1);
+
+          fs.writeFile("users.json", JSON.stringify(Users), (err) => {
+            if (err) {
+              console.error("Error writing to users.json:", err);
+              res.statusCode = 500;
+              res.end("Internal Server Error");
+            } else {
+              res.end(JSON.stringify(Users));
+            }
+          });
+        } else {
+          res.end(JSON.stringify({ error: "User not found" }));
+        }
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+        res.statusCode = 400;
+        res.end("Bad Request: Invalid JSON");
       }
     });
   } else {
-    res.end("heloo from node");
+    res.end("hello from node");
   }
 });
 
