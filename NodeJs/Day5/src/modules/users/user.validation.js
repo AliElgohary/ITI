@@ -1,0 +1,23 @@
+import Joi from "joi";
+
+export const newUserSchema = Joi.object({
+    userName: Joi.string().alphanum().min(3).max(20).required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")).required(),
+    Cpassword: Joi.ref("password"),
+    age: Joi.number().min(15).max(60).required(),
+    gender: Joi.string().valid("male", "female").required(),
+})
+
+export const  loginSchema = Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")).required(),
+})
+
+export const updateUserSchema = Joi.object({
+    userName: Joi.string().alphanum().min(3).max(20).required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().pattern(new RegExp("^[a-zA-Z0-9]{3,30}$")).required(),
+    age: Joi.number().min(15).max(60).required(),
+})
+
