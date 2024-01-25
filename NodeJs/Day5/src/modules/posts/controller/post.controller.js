@@ -49,26 +49,43 @@ export const deletePostById = async (req, res) => {
 };
 
 export const updatePost = async (req, res) => {
-    try {
-      const postId = req.params.id;
-      const { title, content } = req.body;
-      const post = await postModel.findById(postId);
-  
-      if (!post) {
-        return res.status(404).send({ message: 'Post not found' });
-      }
-      if (post.userID == req.userId) {
-        await postModel.findByIdAndUpdate(postId, {
-          title,
-          content,
-        });
-        const newPost = await postModel.findById(postId);
-        res.send({ newPost: newPost });
-      } else {
-        res.status(403).send({ message: 'Not authorized to update this post' });
-      }
-    } catch (error) {
-      res.status(500).send({ error: error.message });
+  try {
+    const postId = req.params.id;
+    const { title, content } = req.body;
+    const post = await postModel.findById(postId);
+
+    if (!post) {
+      return res.send({ message: "Post not found" });
     }
-  };
-  
+    if (post.userID == req.userId) {
+      await postModel.findByIdAndUpdate(postId, {
+        title,
+        content,
+      });
+      const newPost = await postModel.findById(postId);
+      res.send({ newPost: newPost });
+    } else {
+      res.send({ message: "Not authorized to update this post" });
+    }
+  } catch (error) {
+    res.send({ error: error.message });
+  }
+};
+
+export const getUserPosts = async (req, res) => {
+  try {
+    const allPosts = await postModel.find().populate("userID");
+    res.json({ message: "All posts populated", allPosts });
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+};
+
+export const sortedPosts = async (req, res) => {
+  try {
+    const allPosts = await postModel.find().sort({ createdAt: -1 });
+    res.json({ allPostsSorted: allPosts });
+  } catch (error) {
+    res.json({ error: error.message });
+  }
+};
