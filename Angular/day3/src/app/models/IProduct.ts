@@ -5,4 +5,5 @@ export interface IProduct {
   Price: number;
   Img: string;
   CategoryID: number;
+  cartQuantity : number;
 }

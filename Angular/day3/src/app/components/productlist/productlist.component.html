@@ -19,9 +19,9 @@
 </select>
 
 
-<div class="row ">
+<div class="row " >
   @for(product of filteredProduct; track product.ID){
-  <div class="col-sm-6 mb-4 mt-4">
+  <div class="col-sm-5 my-4 mx-4" appProductcard style="border: 2px solid red;"  >
     <img [src]="product.Img" style="height: 300px" />
     <h4>Product ID: {{ product.ID }}</h4>
     <b>Product Name: {{ product.Name }}</b>
@@ -37,9 +37,13 @@
         <p [style.color]="product.Quantity > 1 ? 'yellow' : ''">Product Quantity: {{ product.Quantity }}</p>
       }
     }
-    <p>Product Price: {{ product.Price }}</p>
-    <button class="btn btn-success"  (click)="buyProduct(product)" (click)="togglePurchases()" [disabled]="product.Quantity == 0">Buy</button>
+    <p>Product Price:  {{ product.Price | currency: 'USD' : 'symbol' }}</p>
+
+    <button class="btn btn-success"  (click)="buyProduct(product)" (click)="addToCart(product)" [disabled]="product.Quantity == 0">Buy</button>
   </div>
   }
+  <!-- some-component.component.html -->
+
 </div>
+<p>Formatted Credit Card Number: {{ "0000000000000000" | creditcard   }}</p>
 </div>

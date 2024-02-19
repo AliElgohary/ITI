@@ -1,6 +1,28 @@
 <form action="" class="container">
   <label for="filter">Filter By price</label>
-  <input type="number" name="filter" class="form-control mt-4" [(ngModel)]="filterValue" />
+  <input
+    type="number"
+    name="filter"
+    class="form-control mt-4"
+    [(ngModel)]="filterValue"
+  />
 </form>
 
-<app-productlist [FilterdValue]="filterValue" ></app-productlist>
+<app-productlist
+  [FilterdValue]="filterValue"
+  (addchildEvent)="getCartItem($event)"
+></app-productlist>
+
+<h2>Cart</h2>
+<div class="container">
+  <div class="row">
+    @for (product of cart; track product.ID) {
+    <div class="col-sm-6 my-5">
+      <img [src]="product.Img" style="height: 300px" />
+      <h4>Product ID: {{ product.ID }}</h4>
+      <b>Product Name: {{ product.Name }}</b>
+      <h4>Quantity : {{ product.cartQuantity }}</h4>
+    </div>
+    }
+  </div>
+</div>
