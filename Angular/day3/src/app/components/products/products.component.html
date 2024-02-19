@@ -1,0 +1,6 @@
+<form action="" class="container">
+  <label for="filter">Filter By price</label>
+  <input type="number" name="filter" class="form-control mt-4" [(ngModel)]="filterValue" />
+</form>
+
+<app-productlist [FilterdValue]="filterValue" ></app-productlist>

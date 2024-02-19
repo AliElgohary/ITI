@@ -1,0 +1,44 @@
+<div>
+  @if(Discount !== "No Discount") {
+    <h3>We offer an explicit discount of: {{ Discount }}</h3>
+
+  }
+  <h3>Client Name: {{ ClientName }}</h3>
+</div>
+@if(isPurchased) {
+  <div>
+    <p [ngStyle]="{'font-size.px': 25}">Thanks for purchasing from our Store, {{ ClientName }}</p>
+
+    <img src = "assets/img1.jpg" style="height: 20px; width: 100%;"/>
+  </div>
+}
+
+<select [(ngModel)]="selectedCategory" >
+  <option *ngFor="let product of ProductList" [value]="product.CategoryID">{{ product.CategoryID }}</option>
+</select>
+
+
+<div class="row">
+
+  @for(product of filteredProduct; track product.ID){
+  <div class="col-sm-6 mb-4 mt-4">
+    <img [src]="product.Img" style="height: 90px" />
+    <h4>Product ID: {{ product.ID }}</h4>
+    <b>Product Name: {{ product.Name }}</b>
+    @switch (product.Quantity) {
+      @case (1) {
+        <p>Last one item!</p>
+      }
+      @case (2) {
+        <p>Last two items!</p>
+      } @case (0) {
+        <p>Out of stock!</p>
+      } @default {
+        <p [style.color]="product.Quantity > 1 ? 'yellow' : ''">Product Quantity: {{ product.Quantity }}</p>
+      }
+    }
+    <p>Product Price: {{ product.Price }}</p>
+    <button [ngClass]="btn btn-success"  (click)="buyProduct(product)" (click)="togglePurchases()" [disabled]="product.Quantity == 0">Buy</button>
+  </div>
+  }
+</div>
