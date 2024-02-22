@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    @for (product of products; track product.id) {
+
+    <div class="col-sm-3 my-4">
+      <img [src]="product.image" style="height: 300px; width: 300px" />
+
+      <p><b>Product Name:</b> {{ product.title }}</p>
+      <p><b>Category:</b> {{ product.category }}</p>
+      <p><b>Price:</b> {{ product.price }}</p>
+      <p>
+        <b>Rating:</b> {{ product.rating.rate }} ({{ product.rating.count }}
+        ratings)
+      </p>
+
+      <button class="btn btn-danger" [routerLink]="['/products', product.id]" routerLinkActive="router-link-active" >Products Details</button>
+
+    </div>
+    }
+  </div>
+</div>

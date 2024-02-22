@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": "0ad0",
+      "name": "ali",
+      "price": 3241,
+      "category": "home decor"
+    }
+  ],
+  "categories": [
+    {
+      "id": "231",
+      "name": "electronics"
+    },
+    {
+      "id": "232",
+      "name": "clothing"
+    },
+    {
+      "id": "233",
+      "name": "home decor"
+    },
+    {
+      "id": "234",
+      "name": "sports equipment"
+    },
+    {
+      "id": "235",
+      "name": "books"
+    }
+  ]
+}

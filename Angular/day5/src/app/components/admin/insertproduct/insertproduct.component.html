@@ -1,0 +1,94 @@
+<!-- <button class="btn btn-primary" (click)="addUser()">Add User</button> -->
+<div class="container">
+  <form #signupForm="ngForm" (ngSubmit)="insertProduct()">
+    <div class="form-group row mb-2">
+      <label for="name" class="col-md-2 col-form-label">Name</label>
+      <div class="col-md-8">
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          id="name"
+          placeholder="Product Name (required)"
+          required
+          minlength="3"
+          [(ngModel)]="newProduct.name"
+          #nameInput="ngModel"
+          [ngClass]="{
+            'is-invalid':
+              (nameInput.touched || nameInput.dirty) && !nameInput.valid
+          }"
+        />
+
+        <span class="invalid-feedback">
+          @if(nameInput.errors?.['required']){
+          <span>Name is required</span>
+          } @if(nameInput.errors?.['minlength']){
+          <span>Name at least 3 chars</span>
+          }
+        </span>
+      </div>
+    </div>
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form-label" for="price">Price</label>
+      <div class="col-md-8">
+        <input
+          class="form-control"
+          id="price"
+          type="number"
+          placeholder="Price (required)"
+          required
+          name="price"
+          [(ngModel)]="newProduct.price"
+          #priceInput="ngModel"
+          [ngClass]="{
+            'is-invalid':
+              (priceInput.touched || priceInput.dirty) && !priceInput.valid
+          }"
+        />
+        <span class="invalid-feedback">
+          @if(priceInput.errors?.['required']){
+          <span>Price is required</span>
+          }
+        </span>
+      </div>
+    </div>
+
+    <div class="form-group row mb-2">
+      <label for="category" class="col-md-2 col-form-label">Category</label>
+      <div class="col-md-8">
+        <select class="form-control" id="category" [(ngModel)]="newProduct.category" required name="catId">
+          @for (cat of categories; track cat) {
+          <option [ngValue]="cat.name">{{ cat.name }}</option>
+          }
+        </select>
+        <span class="invalid-feedback"> </span>
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-success"
+      [disabled]="!signupForm.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    @for (product of products; track product.id) {
+
+    <div class="col-sm-6 my-4">
+      <p><b>Product Name:</b> {{ product.name }}</p>
+      <p><b>Category:</b> {{ product.category }}</p>
+      <p><b>Price:</b> {{ product.price }}</p>
+      <button class="btn btn-danger" routerLinkActive="router-link-active" (click)="deleteProduct(product.id)" >Delete</button><br><br>
+      <button class="btn btn-success" routerLinkActive="router-link-active" >Edit</button>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+
+
+    <div class="col-sm-3 my-4">
+      <img [src]="myProduct.image" style="height: 300px; width: 300px" />
+
+      <p><b>Product Name:</b> {{ myProduct.title }}</p>
+      <p><b>Category:</b> {{ myProduct.category }}</p>
+      <p><b>Price:</b> {{ myProduct.price }}</p>
+      <p>
+        <b>Rating:</b> {{ myProduct.rating.rate }} ({{ myProduct.rating.count }}
+        ratings)
+      </p>
+      <button class="btn btn-success" routerLink="/products"  routerLinkActive="router-link-active" >Go Back</button>
+
+    </div>
+
+  </div>
+</div>
