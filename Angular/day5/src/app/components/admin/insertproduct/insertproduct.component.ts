@@ -22,6 +22,7 @@ export class InsertproductComponent implements OnInit {
   };
   selectedOption: string = '';
   newProduct: Iproduct = {} as Iproduct;
+  isEditing: boolean = false;
 
   constructor(private productSer: ProductService, private router: Router) {}
 
@@ -37,6 +38,14 @@ export class InsertproductComponent implements OnInit {
     });
   }
 
+  submitForm(item: Iproduct): void {
+    if (!this.isEditing) {
+      this.insertProduct();
+    } else {
+      this.editProduct(item);
+    }
+  }
+
   insertProduct(): void {
     this.productSer.insertProduct(this.newProduct).subscribe((data) => {
       console.log(data);
@@ -48,6 +57,18 @@ export class InsertproductComponent implements OnInit {
     this.productSer.deleteProduct(productID).subscribe((data) => {
       console.log(data);
       this.router.navigate(['/admin']);
+    });
+  }
+
+  startEditing(product: Iproduct) {
+    this.isEditing = true;
+    this.newProduct = { ...product };
+  }
+
+  editProduct(product: Iproduct) {
+    this.productSer.updateProduct(product).subscribe((data) => {
+      console.log(data);
+      this.router.navigate(['/cart']);
     });
   }
 }

@@ -1,6 +1,6 @@
-<!-- <button class="btn btn-primary" (click)="addUser()">Add User</button> -->
+
 <div class="container">
-  <form #signupForm="ngForm" (ngSubmit)="insertProduct()">
+  <form #signupForm="ngForm" (ngSubmit)="submitForm(newProduct)">
     <div class="form-group row mb-2">
       <label for="name" class="col-md-2 col-form-label">Name</label>
       <div class="col-md-8">
@@ -57,7 +57,13 @@
     <div class="form-group row mb-2">
       <label for="category" class="col-md-2 col-form-label">Category</label>
       <div class="col-md-8">
-        <select class="form-control" id="category" [(ngModel)]="newProduct.category" required name="catId">
+        <select
+          class="form-control"
+          id="category"
+          [(ngModel)]="newProduct.category"
+          required
+          name="catId"
+        >
           @for (cat of categories; track cat) {
           <option [ngValue]="cat.name">{{ cat.name }}</option>
           }
@@ -71,23 +77,34 @@
       class="btn btn-success"
       [disabled]="!signupForm.valid"
     >
-      Submit
+      {{ isEditing ? "Update" : "Submit" }}
     </button>
   </form>
 </div>
 
 
-
-<div class="container">
+<div class="container my-5">
+  <h2 class="h1">Products</h2>
   <div class="row">
     @for (product of products; track product.id) {
-
-    <div class="col-sm-6 my-4">
+    <div class="col-sm-3 my-4">
       <p><b>Product Name:</b> {{ product.name }}</p>
       <p><b>Category:</b> {{ product.category }}</p>
       <p><b>Price:</b> {{ product.price }}</p>
-      <button class="btn btn-danger" routerLinkActive="router-link-active" (click)="deleteProduct(product.id)" >Delete</button><br><br>
-      <button class="btn btn-success" routerLinkActive="router-link-active" >Edit</button>
+      <button
+        class="btn btn-danger mx-2"
+        routerLinkActive="router-link-active"
+        (click)="deleteProduct(product.id)"
+      >
+        Delete
+      </button>
+      <button
+        class="btn btn-success"
+        routerLinkActive="router-link-active"
+        (click)="startEditing(product)"
+      >
+        Edit
+      </button>
     </div>
     }
   </div>
