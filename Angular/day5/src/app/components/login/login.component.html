@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="card mb-4">
+    <div class="card-body">
+      <form [formGroup]="formGroup">
+        <div class="form-group row mb-2">
+          <label for="fullName" class="col-md-2 col-form-label"
+            >First Name</label
+          >
+          <div class="col-md-8">
+            <input
+              type="text"
+              name="fullName"
+              class="form-control"
+              id="fullName"
+              formControlName="fullName"
+              placeholder="Full Name (required)"
+              required
+              minlength="3"
+              [ngClass]="{
+                'is-invalid':
+                  (fullName?.touched || fullName?.dirty) && fullName?.invalid
+              }"
+            />
+            <span class="invalid-feedback">
+              @if(fullName?.errors?.['required']){
+              <span>First Name is required</span>
+              } @if(fullName?.errors?.['minlength']){
+              <span>First Name at least 5 chars</span>
+              }
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="emailId">Email</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="email"
+              type="email"
+              formControlName="email"
+              placeholder="Email (required)"
+              required
+              email
+              name="email"
+              [ngClass]="{
+                'is-invalid': (email?.touched || email?.dirty) && email?.invalid
+              }"
+            />
+            <span class="invalid-feedback">
+              @if(email?.errors?.['required']){
+              <span>email is required</span>
+              } @if(email?.errors?.['pattern']){
+              <span>please enter a vaid E-mail</span>
+              }
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label" for="phone">Phone Number</label>
+          <div class="col-md-8">
+            <input
+              class="form-control"
+              id="phone"
+              type="text"
+              formControlName="phoneNumber"
+              placeholder="Phone Number (required)"
+              required
+              name="phoneNumber"
+              [ngClass]="{
+                'is-invalid': (phoneNumber?.touched || phoneNumber?.dirty) && phoneNumber?.invalid
+              }"
+            />
+            <span class="invalid-feedback">
+              @if(phoneNumber?.errors?.['required']){
+              <span>email is required</span>
+              } @if(phoneNumber?.errors?.['pattern']){
+              <span>Phone Number is required</span>
+              }
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label">Additonal Phone Numbers</label>
+          <div formArrayName="additionalPhoneNumbers">
+            @for(control of additionalPhoneNumbers.controls;track $index){
+            <div [formGroupName]="$index">
+              <input type="text" formControlName="phone" />
+              <button class="btn btn-danger" (click)="removeAddressInput($index)">
+                Remove
+              </button>
+            </div>
+
+            }
+          </div>
+          <button class="btn btn-primary" (click)="addAddress()">
+            add address
+          </button>
+        </div>
+
+
+
+
+        <!-- <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label">Address</label>
+          <div formArrayName="address">
+            @for(control of address.controls;track $index){
+            <div [formGroupName]="$index">
+              city Name:
+              <input type="text" formControlName="city" />
+              street:
+              <input type="text" formControlName="street" />
+              <button class="btn btn-danger" (click)="removeAddressInput($index)">
+                Remove
+              </button>
+            </div>
+
+            }
+          </div>
+          <button class="btn btn-primary" (click)="addAddress()">
+            add address
+          </button>
+        </div> -->
+
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <p>{{ email?.errors | json }}</p>
+  <!-- <p>{{add.value | json}}</p> -->
+  <!-- <p>{{ formgroup1.get('fullName')}}</p> -->
+</div>
