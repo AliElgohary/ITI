@@ -1,0 +1,142 @@
+<form class="form-group w-50" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="fullName">Full Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="fullName"
+      formControlName="fullName"
+      [ngClass]="{
+        'is-invalid':
+          (fullName?.touched || fullName?.dirty) && fullName?.invalid
+      }"
+    />
+    <span class="invalid-feedback">
+      @if(fullName?.errors?.['required']){
+      <span>Full Name is required</span>
+      } @if(fullName?.errors?.['minlength']){
+      <span>Full Name at least 5 chars</span>
+      }
+    </span>
+  </div>
+  <div>
+    <label for="email">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      id="email"
+      formControlName="email"
+      [ngClass]="{
+        'is-invalid': (email?.touched || email?.dirty) && email?.invalid
+      }"
+    />
+    <span class="invalid-feedback">
+      @if(fullName?.errors?.['required']){
+      <span>Email is required</span>
+      }
+    </span>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      formControlName="password"
+      [ngClass]="{
+        'is-invalid':
+          (password?.touched || password?.dirty) && password?.invalid
+      }"
+    />
+    <span class="invalid-feedback">
+      @if(password?.errors?.['required']){
+      <span>Password is required</span>
+      } @if(password?.errors?.['minlength']){
+      <span>Password at least 6 chars</span>
+      }
+    </span>
+  </div>
+  <div formArrayName="mobileNumbers">
+    <div *ngFor="let mobileNumber of mobileNumbers.controls; let i = index">
+      <label for="mobileNumber{{ i }}">Mobile Number</label>
+      <input
+        type="text"
+        class="form-control"
+        id="mobileNumber{{ i }}"
+        [formControlName]="i"
+        [ngClass]="{
+          'is-invalid':
+            (mobileNumber?.touched || mobileNumber?.dirty) &&
+            mobileNumber?.invalid
+        }"
+      />
+      @if(mobileNumber?.errors?.['required']){
+      <span>Mobile Number is required</span>
+      } @if(mobileNumber?.errors?.['pattern']){
+      <span class="invalid-feedback">Enter a valid Phone Number</span>
+      }
+      <button
+        type="button"
+        class="btn btn-danger"
+        (click)="removeMobileNumber(i)"
+        *ngIf="i > 0"
+      >
+        Remove
+      </button>
+    </div>
+  </div>
+  <button type="button" class="btn btn-info" (click)="addMobileNumber()">
+    Add Another Mobile
+  </button>
+  <div formGroupName="address">
+    <h3>Adress</h3>
+    <label for="city">City</label>
+    <input
+      type="text"
+      class="form-control"
+      id="city"
+      formControlName="city"
+      [ngClass]="{
+        'is-invalid': (city?.touched || city?.dirty) && city?.invalid
+      }"
+    />
+    <span class="invalid-feedback">
+      @if(city?.errors?.['required']){
+      <span>city is required</span>
+      }
+    </span>
+    <label for="postalCode">Postal Code</label>
+    <input
+      type="text"
+      class="form-control"
+      id="postalCode"
+      formControlName="postalCode"
+      [ngClass]="{
+        'is-invalid':
+          (postalCode?.touched || postalCode?.dirty) && postalCode?.invalid
+      }"
+    />
+    <span class="invalid-feedback">
+      @if(postalCode?.errors?.['required']){
+      <span>postal code is required</span>
+      }
+    </span>
+    <label for="street">Street</label>
+    <input
+      type="text"
+      class="form-control"
+      id="street"
+      formControlName="street"
+      [ngClass]="{
+        'is-invalid': (street?.touched || street?.dirty) && street?.invalid
+      }"
+    />
+    <span class="invalid-feedback">
+      @if(street?.errors?.['required']){
+      <span>street is required</span>
+      }
+    </span>
+  </div>
+
+  <button class="btn btn-success" type="submit">Submit</button>
+</form>

@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "id": "0da7",
+      "fullName": "aliasd",
+      "email": "ali@gmail.com",
+      "mobileNumbers": [
+        "3e2e32e"
+      ],
+      "address": {
+        "city": "12e12e",
+        "postalCode": "wqdwd",
+        "street": "qwdqwd"
+      },
+      "password": "qwe3ee"
+    },
+    {
+      "id": "0558",
+      "fullName": "Ali Mohamed Elgohary",
+      "email": "alielgohary35@gmail.com",
+      "mobileNumbers": [
+        "01068574016"
+      ],
+      "address": {
+        "city": "Kafr El-sheikh",
+        "postalCode": "09123",
+        "street": "Kafr El-sheikh"
+      },
+      "password": "123123"
+    },
+    {
+      "id": "9435",
+      "fullName": "Mahmoud Ahmed Salem",
+      "email": "mahmoud@gmail.com",
+      "mobileNumbers": [
+        "01521321312"
+      ],
+      "address": {
+        "city": "daqahlia",
+        "postalCode": "3123",
+        "street": "abdelaziz"
+      },
+      "password": "123123123"
+    }
+  ]
+}
