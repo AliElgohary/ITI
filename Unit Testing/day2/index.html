@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List with IndexedDB</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    input[type="text"] {
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+<h1>To-Do List</h1>
+<input type="text" id="taskInput" placeholder="Enter task">
+<button onclick="addTask()">Add Task</button>
+<ul id="taskList">
+</ul>
+
+<script>
+
+    let db;
+    const request = window.indexedDB.open('todo_database', 1);
+
+    request.onerror = function(event) {
+        console.error('Database error: ', event.target.errorCode);
+    };
+
+    request.onsuccess = function(event) {
+        db = event.target.result;
+        displayTasks();
+    };
+
+    request.onupgradeneeded = function(event) {
+        db = event.target.result;
+        const objectStore = db.createObjectStore('tasks', { keyPath: 'id', autoIncrement: true });
+        objectStore.createIndex('taskName', 'taskName', { unique: false });
+    };
+
+    // Function to add a task
+    function addTask() {
+        const taskInput = document.getElementById('taskInput');
+        const taskName = taskInput.value.trim();
+        if (taskName === '') return;
+
+        const transaction = db.transaction(['tasks'], 'readwrite');
+        const objectStore = transaction.objectStore('tasks');
+        objectStore.add({ taskName });
+
+        transaction.oncomplete = function() {
+            displayTasks();
+            taskInput.value = '';
+        };
+    }
+
+    function displayTasks() {
+        const taskList = document.getElementById('taskList');
+        taskList.innerHTML = ''; 
+
+        const transaction = db.transaction(['tasks'], 'readonly');
+        const objectStore = transaction.objectStore('tasks');
+        const request = objectStore.getAll();
+
+        request.onsuccess = function(event) {
+            const tasks = event.target.result;
+            tasks.forEach(task => {
+                const li = document.createElement('li');
+                li.textContent = task.taskName;
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Delete';
+                deleteButton.onclick = function() {
+                    deleteTask(task.id);
+                };
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Edit';
+                editButton.onclick = function() {
+                    editTask(task.id);
+                };
+                li.appendChild(deleteButton);
+                li.appendChild(editButton);
+                taskList.appendChild(li);
+            });
+        };
+    }
+
+    function deleteTask(id) {
+        const transaction = db.transaction(['tasks'], 'readwrite');
+        const objectStore = transaction.objectStore('tasks');
+        objectStore.delete(id);
+        transaction.oncomplete = displayTasks;
+    }
+
+    
+    function editTask(id, currentTaskName) {
+        const newTaskName = prompt('Edit task:', currentTaskName);
+        if (newTaskName === null || newTaskName.trim() === '') return;
+
+        const transaction = db.transaction(['tasks'], 'readwrite');
+        const objectStore = transaction.objectStore('tasks');
+        const request = objectStore.get(id);
+
+        request.onsuccess = function(event) {
+            const task = event.target.result;
+            task.taskName = newTaskName;
+            const updateRequest = objectStore.put(task);
+            updateRequest.onsuccess = displayTasks;
+        };
+    }
+</script>
+</body>
+</html>
