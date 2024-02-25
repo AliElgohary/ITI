@@ -6,6 +6,15 @@
     <a class="nav-link" routerLink="cart">Cart</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" routerLink="order">Order</a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" routerLink="register">Register</a>
   </li>
+  <li class="nav-item">
+    <button class="btn btn-primary h-7" (click)="changeUserState()">
+      {{ userLog ? 'Logout' : 'Login' }}
+    </button>
+  </li>
+
 </ul>

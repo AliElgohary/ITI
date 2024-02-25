@@ -41,6 +41,50 @@
         "street": "abdelaziz"
       },
       "password": "123123123"
+    },
+    {
+      "id": "1bf4",
+      "fullName": "samira",
+      "email": "samira@gmail.com",
+      "mobileNumbers": [
+        "01010101011"
+      ],
+      "address": {
+        "city": "cairo",
+        "postalCode": "123213",
+        "street": "down town"
+      },
+      "password": "3219864778"
+    },
+    {
+      "id": "b84e",
+      "fullName": "samira",
+      "email": "samira@gmail.com",
+      "mobileNumbers": [
+        "01000000000",
+        "01000000022",
+        "01000000033"
+      ],
+      "address": {
+        "city": "qwd",
+        "postalCode": "3123",
+        "street": "abdelaziz"
+      },
+      "password": "q3rqwdwd"
+    },
+    {
+      "id": "0b9f",
+      "fullName": "mohamed",
+      "email": "mo@gmail.com",
+      "mobileNumbers": [
+        "01068572134"
+      ],
+      "address": {
+        "city": "qwd",
+        "postalCode": "134124",
+        "street": "Kafr El-sheikh"
+      },
+      "password": "1293820"
     }
   ]
 }

@@ -70,10 +70,12 @@ export class RegisterComponent  {
   onSubmit() {
     if (this.userForm.valid) {
       this.userSer.addUser(this.userForm.value).subscribe((data) => {
+        this.userForm.reset();
+        alert('Data has been saved!');
       });
-      console.log(this.userForm.value);
     } else {
       console.log('Form is invalid');
     }
   }
+
 }
