@@ -4,8 +4,8 @@ export default function Navbar() {
     return (
         <>
           <ul className="nav justify-content-center">
-            <li className="nav-item">
-              <Link className="nav-link active" href="/">
+          <li className="nav-item">
+              <Link className="nav-link" href="/">
                 Home
               </Link>
             </li>
@@ -20,7 +20,9 @@ export default function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <p className="nav-link"></p>
+              <Link className="nav-link" href="/news">
+                News
+              </Link>
             </li>
           </ul>
         </>

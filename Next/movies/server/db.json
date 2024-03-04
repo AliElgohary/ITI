@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Omar",
+      "body": "this is omar"
+    },
+    {
+      "id": 2,
+      "name": "Ahmed",
+      "body": "this is ahmed"
+    },
+    {
+      "id": 3,
+      "name": "Aya",
+      "body": " this is aya"
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "title": "Hello from sports 1",
+      "category": "sport",
+      "description": "description title1 "
+    },
+    {
+      "id": 2,
+      "title": "Hello from education 2",
+      "category": "education",
+      "description": "description title2 "
+    },
+    {
+      "id": 3,
+      "title": "Hello from sports 2",
+      "category": "sport",
+      "description": "description title3 "
+    }
+  ],
+  "dashboard": [
+    {
+      "posts": 5,
+      "likes": 100,
+      "followers": 200,
+      "following": 10
+    }
+  ]
+}
